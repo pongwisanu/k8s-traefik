@@ -3,7 +3,8 @@ kind: Service
 metadata:
   name: traefik-dashboard-service
   annotations:
-    metallb.universe.tf/allow-shared-ip: '10.10.31.204'
+    # no need if not use single ip in loadbalancer
+    metallb.universe.tf/allow-shared-ip: 'xx.xx.xx.xx'
 spec:
   type: LoadBalancer
   ports:
@@ -17,7 +18,8 @@ kind: Service
 metadata:
   name: traefik-http-service
   annotations:
-    metallb.universe.tf/allow-shared-ip: '10.10.31.204'
+    # no need if not use single ip in loadbalancer
+    metallb.universe.tf/allow-shared-ip: 'xx.xx.xx.xx'
 spec:
   type: LoadBalancer
   ports:
