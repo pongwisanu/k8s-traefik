@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: traefik-dashboard-service
+  annotations:
+    metallb.universe.tf/allow-shared-ip: '10.10.31.204'
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 8080
+      targetPort: dashboard
+  selector:
+    app: traefik
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: traefik-http-service
+  annotations:
+    metallb.universe.tf/allow-shared-ip: '10.10.31.204'
+spec:
+  type: LoadBalancer
+  ports:
+    - targetPort: traefik-http
+      port: 80
+  selector:
+    app: traefik
